@@ -1,0 +1,33 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="CID2.RecordManager"
+        Height="570" Width="900" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Grid x:Name="theGrid" Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox Name="cboGridPick" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" SelectionChanged="cboGridPick_SelectionChanged"/>
+        <Button Name="btnRefresh" Content="♻" ToolTip="Refresh List" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="160,5,0,0" Click="btnRefresh_Click"/>
+        <Button Name="btnImport" Content="Import From CID1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,130,0" Click="btnImport_Click"/>
+        <Button Name="btnDelete" Content="Delete Marked" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,5,0" Click="btnDelete_Click"/>
+        <DataGrid x:Name="gridList" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding}" IsReadOnly="False" Background="White" AlternatingRowBackground="WhiteSmoke" 
+			AlternationCount="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,5,0" Width="Auto" AutoGenerateColumns="False"
+			GridLinesVisibility="Vertical" VerticalGridLinesBrush="LightGray">
+            <DataGrid.RowStyle>
+                <Style>
+                    <EventSetter Event="Control.MouseDoubleClick" Handler="gridList_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <!--<DataGrid.Columns>
+                <DataGridCheckBoxColumn Width="30" Binding="{Binding isChecked}" IsReadOnly="False"/>
+                <DataGridTextColumn Header="ID" Width="40" Binding="{Binding genericcomp.ID, StringFormat=C{0}}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Record Type" Width="300" Binding="{Binding genericcomp.Type.Label}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Address" Width="265" Binding="{Binding genericcomp.SiteAddress1}" SortMemberPath="{Binding SortAddress}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Date Created" Binding="{Binding genericcomp.DateReceived, StringFormat=MM/dd/yyyy}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Date Closed" Binding="{Binding genericcomp.DateClosed, StringFormat=MM/dd/yyyy}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Expiry Date" Binding="{Binding genericcomp.RetentionDate, StringFormat=MM/dd/yyyy}" IsReadOnly="True"/>
+            </DataGrid.Columns>-->
+        </DataGrid>
+    </Grid>
+</Window>

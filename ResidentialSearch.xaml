@@ -1,0 +1,56 @@
+﻿<Window x:Class="CID2.ResidentialSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ResidentialSearch" Height="500" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45px"/>
+            <RowDefinition Height="45px"/>
+            <RowDefinition Height="45px"/>
+            <RowDefinition Height="45px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150px"/>
+            <ColumnDefinition Width="75px"/>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Building Description" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtDesc1" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="5,20,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10000"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Address Line 1" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtAdd1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="5,20,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10000"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Parcel/PlaceID" Margin="5,5,5,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtParcel" Grid.Row="1" Grid.Column="3" Margin="5,20,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10001"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Address Line 2" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtAdd2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="5,20,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10002"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" Text="Latitude(near)" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtLat" Grid.Row="2" Grid.Column="3" Margin="5,20,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10003"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="City" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox Name="cboCity" Grid.Row="3" Grid.Column="0" Margin="5,20,0,0" Style="{StaticResource flatcombo}" SelectedValuePath="ID"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10004"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="State" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox Name="cboState" Grid.Row="3" Grid.Column="1" Margin="5,20,0,0" Style="{StaticResource flatcombo}" SelectedValuePath="ID"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Top" IsEnabled="False" TabIndex="10005"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Text="Zip" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtZip" Grid.Row="3" Grid.Column="2" Margin="5,20,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10006"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Text="Longitude(near)" Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtLon" Grid.Row="3" Grid.Column="3" Margin="5,20,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" TabIndex="10007"/>
+        <DataGrid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Name="listAddresses" ItemsSource="{Binding}" IsReadOnly="True" AlternatingRowBackground="WhiteSmoke"
+                  AlternationCount="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Width="Auto" AutoGenerateColumns="False"
+                  GridLinesVisibility="Vertical" VerticalGridLinesBrush="LightGray" TabIndex="10008">
+            <DataGrid.RowStyle>
+                <Style>
+                    <EventSetter Event="DataGridRow.MouseDoubleClick" Handler="listAddresses_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Place ID" Width="70" Binding="{Binding Path=PlaceID}"/>
+                <DataGridTextColumn Header="Parcel" Width="70" Binding="{Binding Path=Parcel}"/>
+                <DataGridTextColumn Header="Address" Width="160" Binding="{Binding Path=AddressLine1}"/>
+                <DataGridTextColumn Header="City" Width="70" Binding="{Binding Path=City.Name}"/>
+                <DataGridTextColumn Header="Zip" Width="45" Binding="{Binding Path=Zip}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

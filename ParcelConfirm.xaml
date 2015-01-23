@@ -1,0 +1,24 @@
+﻿<Window x:Class="CID2.ParcelConfirm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Confim" Height="300" Width="400" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize" Topmost="True">
+    <Grid>
+        <TextBlock Text="Parcel Information" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0" FontWeight="Bold" FontSize="24"/>
+        <TextBlock Text="Parcel Number" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0" FontSize="12"/>
+        <TextBox Name="ParcelID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="150" FontSize="14" TabIndex="10000"/>
+        <TextBlock Name="txtParcelCheckLabel" Text="Copy to form?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,60,0,0" FontSize="12"/>
+        <CheckBox Name="IDchk" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,80,0,0" TabIndex="10002"/>
+        <TextBlock Text="Zip Code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0" FontSize="12"/>
+        <TextBox Name="ParcelZip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,125,0,0" Width="150" FontSize="14" TabIndex="10003"/>
+        <TextBlock Name="txtZipCheckLabel" Text="Copy to form?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,110,0,0" FontSize="12"/>
+        <CheckBox Name="Zipchk" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="175,130,0,0" TabIndex="10004"/>
+        <TextBlock Name="txtParcelOwnerLabel" Text="Parcel Owner" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,165,0,0" FontSize="12"/>
+        <TextBox Name="ParcelOwner" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,180,0,0" Width="250" FontSize="14" TabIndex="10005"/>
+        <TextBlock Name="txtParcelChkLable" Text="Copy to complaint?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="275,165,0,0" FontSize="12"/>
+        <CheckBox Name="Ownerchk" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="275,185,0,0" TabIndex="10006"/>
+        <Button Name="btnOK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="OK" Width="65" Height="30" Margin="0,0,100,10" FontSize="18"
+                FontWeight="Bold" Click="btnOK_Click" TabIndex="10007"/>
+        <Button Name="btnCancel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Cancel" Width="65" Height="30" Margin="100,0,0,10"
+                FontSize="18" FontWeight="Bold" Click="btnCancel_Click" TabIndex="10008"/>
+    </Grid>
+</Window>

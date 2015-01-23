@@ -1,0 +1,140 @@
+﻿<src:SiteControlBase
+    x:Class="CID2.SiteControlNonPermFac"
+    xmlns:src="clr-namespace:CID2"
+    xmlns:local="clr-namespace:CID2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d" 
+    d:DesignHeight="300" d:DesignWidth="600">
+    <Grid Background="#E5E5E5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Facility Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0"
+                                       FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="0" Grid.Row="0" Name="txtPropDesc" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,20,5,0"
+                                     FontSize="14" MaxLength="512" TabIndex="10011"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Place ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="txtPropPlaceID" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0"
+                                     FontSize="14" MaxLength="64" TabIndex="10012"/>
+            <Grid Grid.Column="2" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Grid.Row="0" Name="btnPropertyList" Content="Site List" FontWeight="Bold" Style="{StaticResource flatbutton}"
+                                        Background="LightGray" Foreground="DarkRed" HorizontalAlignment="Stretch" VerticalAlignment="Top" IsEnabledChanged="Button_IsEnabledChanged"
+                                        Margin="5,2,2,2" Click="btnPropertyList_Click" FontSize="10" IsEnabled="True" TabIndex="10028"/>
+                <Button Grid.Column="0" Grid.Row="1" Name="btnNewProperty" Content="New Site" FontWeight="Bold" Style="{StaticResource flatbutton}"
+                                        Background="LightGray" Foreground="DarkGray" HorizontalAlignment="Stretch" VerticalAlignment="Top" IsEnabledChanged="btnNewProperty_IsEnabledChanged"
+                                        Margin="5,2,2,2" Click="btnNewProperty_Click" FontSize="10" IsEnabled="False" TabIndex="10029"/>
+                <CheckBox Grid.Column="1" Grid.Row="0" Name="chkRestricted" Content="Restricted" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                          Margin="2,0,5,0" IsEnabled="True" TabIndex="10030"/>
+                <CheckBox Grid.Column="1" Grid.Row="1" Name="chkAppendixA" Content="Appendix A"  HorizontalAlignment="Left" VerticalAlignment="Center"
+                                          Margin="2,0,5,0" IsEnabled="True" TabIndex="10031"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="*Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="0" Grid.Row="0" Name="txtPropAddLine1" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,20,5,0"
+                                     FontSize="14" MaxLength="512" TabIndex="10013"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Parcel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="txtPropParcel" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0"
+                                     FontSize="14" MaxLength="64" TabIndex="10014"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="Latitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="2" Grid.Row="0" Name="txtPropLat" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,10,0"
+                                     FontSize="14" TextChanged="CoordsChanged" MaxLength="128" LostFocus="CoordsChanged" DataObject.Pasting="txtcoords_Pasting"
+                                     PreviewTextInput="txtcoords_PreviewTextInput" TabIndex="10015"/>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="0" Grid.Row="0" Name="txtPropAddLine2" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                     Margin="10,20,5,0" FontSize="14" MaxLength="512" TabIndex="10016"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Township" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Grid.Column="1" Grid.Row="0" Name="cboPropTownship" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" IsSynchronizedWithCurrentItem="False" FontSize="14" TabIndex="10017"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="Longitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="2" Grid.Row="0" Name="txtPropLon" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,10,0"
+                                     FontSize="14" TextChanged="CoordsChanged" LostFocus="CoordsChanged" DataObject.Pasting="txtcoords_Pasting"
+                                     PreviewTextInput="txtcoords_PreviewTextInput" MaxLength="128" TabIndex="10018"/>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="65px"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="*City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold" FontSize="12"/>
+                <ComboBox Grid.Column="0" Grid.Row="0" Name="cboPropCity" SelectedValuePath="ID" Style="{StaticResource flatcombo}" HorizontalAlignment="Stretch"
+                                          VerticalAlignment="Top" Margin="10,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False"
+                                          SelectionChanged="cboPropCity_SelectionChanged" TabIndex="10019"/>
+                <TextBlock Grid.Column="1" Grid.Row="0" Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+                <ComboBox Grid.Column="1" Grid.Row="0" Name="cboPropState" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                                          HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14"
+                                          IsSynchronizedWithCurrentItem="False" IsEnabled="False" IsTabStop="False" TabIndex="10020"/>
+            </Grid>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Grid.Column="1" Grid.Row="0" Name="cboZipBox" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" IsSynchronizedWithCurrentItem="False"
+                                      FontSize="14" TabIndex="10021"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="County" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Grid.Column="2" Grid.Row="0" Name="cboPropCounty" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,10,0" IsSynchronizedWithCurrentItem="False"
+                                      FontSize="14" SelectionChanged="cboPropCounty_SelectionChanged" TabIndex="10022"/>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Name="btnAuditor" Content="Auditor's Site" FontWeight="Bold" Style="{StaticResource flatbutton}"
+                                    Background="LightGray" Foreground="DarkRed" Width="115px" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"
+                                    IsEnabledChanged="Button_IsEnabledChanged" Margin="10,15,5,0" FontSize="14" Click="btnAuditor_Click" TabIndex="10023"/>
+            <Button Grid.Column="1" Grid.Row="0" Name="btnGetParcel" Content="Get Parcel Info" FontWeight="Bold" Style="{StaticResource flatbutton}"
+                                    Background="LightGray" Foreground="DarkRed" Width="115px" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"
+                                    IsEnabledChanged="Button_IsEnabledChanged" Margin="5,15,5,0" FontSize="14" Click="btnGetParcel_Click" TabIndex="10024"/>
+            <Button Grid.Column="2" Grid.Row="0" Name="btnGetCoords" Content="Get Coordinates" FontWeight="Bold" Style="{StaticResource flatbutton}"
+                                    Background="LightGray" Foreground="DarkRed" Width="115px" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25"
+                                    IsEnabledChanged="Button_IsEnabledChanged" Margin="5,15,5,0" FontSize="14" Click="btnGetCoords_Click" TabIndex="10025"/>
+            <TextBlock Grid.Column="3" Grid.Row="0" Text="ANTS ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="3" Grid.Row="0" Name="txtANTSID" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,10,0"
+                                     FontSize="14" MaxLength="128" TabIndex="10026"/>
+        </Grid>
+    </Grid>
+</src:SiteControlBase>

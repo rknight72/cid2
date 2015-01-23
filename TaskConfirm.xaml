@@ -1,0 +1,16 @@
+﻿<Window x:Class="CID2.TaskConfirm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TaskConfirm" Height="285" Width="350" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize" Topmost="True">
+    <Grid Background="WhiteSmoke">
+        <TextBlock Text="Add Task" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0" FontWeight="Bold" FontSize="24"/>
+        <TextBlock Text="Choose task date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,0,0" FontWeight="Bold" FontSize="12"/>
+        <DatePicker Name="DateBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,65,0,0" Width="150" FontSize="14" TabIndex="10000"/>
+        <TextBlock Text="Task notes" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,110,0,0" FontWeight="Bold" FontFamily="12"/>
+        <TextBox Name="NotesBox" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,125,10,0" Height="80" FontSize="14" TabIndex="10001"/>
+        <Button Name="btnOK" Foreground="DarkRed" Background="LightGray" Style="{StaticResource flatbutton}" HorizontalAlignment="Center"
+                VerticalAlignment="Bottom" Content="Add" Width="65" Height="30" Margin="0,0,100,10" FontSize="18" FontWeight="Bold" Click="btnOK_Click" TabIndex="10002"/>
+        <Button Name="btnCancel" Foreground="DarkRed" Background="LightGray" Style="{StaticResource flatbutton}" HorizontalAlignment="Center"
+                VerticalAlignment="Bottom" Content="Cancel" Width="65" Height="30" Margin="100,0,0,10" FontSize="18" FontWeight="Bold" Click="btnCancel_Click" TabIndex="10003"/>
+    </Grid>
+</Window>

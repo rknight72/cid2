@@ -1,0 +1,217 @@
+﻿<Window x:Class="CID2.InspectionWizard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Inspection Wizard" Height="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid Name="grid01" Visibility="Visible">
+            <TextBlock Text="Inspection Type" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <RadioButton Name="btnInsp1" GroupName="InspectionType" Content="Air Release" HorizontalAlignment="Left" Margin="115,75,0,0" VerticalAlignment="Top" FontSize="20" Click="InspectionButton1_Click" TabIndex="10000"/>
+            <RadioButton Name="btnInsp2" GroupName="InspectionType" Content="Asbestos" HorizontalAlignment="Left" Margin="115,105,0,0" VerticalAlignment="Top" FontSize="20" Click="InspectionButton2_Click" TabIndex="10001"/>
+            <RadioButton Name="btnInsp3" GroupName="InspectionType" Content="Fugitive Dust" HorizontalAlignment="Left" Margin="115,135,0,0" VerticalAlignment="Top" FontSize="20" Click="InspectionButton3_Click" TabIndex="10002"/>
+            <RadioButton Name="btnInsp4" GroupName="InspectionType" Content="Odor" HorizontalAlignment="Left" Margin="115,165,0,0" VerticalAlignment="Top" FontSize="20" Click="InspectionButton4_Click" TabIndex="10003"/>
+            <RadioButton Name="btnInsp5" GroupName="InspectionType" Content="Open Burning" HorizontalAlignment="Left" Margin="115,195,0,0" VerticalAlignment="Top" FontSize="20" Click="InspectionButton5_Click" TabIndex="10004"/>
+            <RadioButton Name="btnInsp6" GroupName="InspectionType" Content="Other" HorizontalAlignment="Left" Margin="115,225,0,0" VerticalAlignment="Top" FontSize="20" Click="InspectionButton6_Click" TabIndex="10005"/>
+        </Grid>
+        <Grid Name="grid02" Visibility="Hidden">
+            <TextBlock Text="Complaint Location" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <RadioButton Name="btnLoc1" GroupName="LocationType" Content="Non-permitted Facility" HorizontalAlignment="Left" Margin="115,75,0,0" VerticalAlignment="Top" FontSize="20" Click="LocationButton1_Click" TabIndex="10010"/>
+            <RadioButton Name="btnLoc2" GroupName="LocationType" Content="Permitted Facility" HorizontalAlignment="Left" Margin="115,105,0,0" VerticalAlignment="Top" FontSize="20" Click="LocationButton2_Click" TabIndex="10011"/>
+            <RadioButton Name="btnLoc3" GroupName="LocationType" Content="Residential" HorizontalAlignment="Left" Margin="115,135,0,0" VerticalAlignment="Top" FontSize="20" Click="LocationButton3_Click" TabIndex="10012"/>
+            <RadioButton Name="btnLoc4" GroupName="LocationType" Content="Other" HorizontalAlignment="Left" Margin="115,165,0,0" VerticalAlignment="Top" FontSize="20" Click="LocationButton4_Click" TabIndex="10013"/>
+        </Grid>
+        <Grid Name="grid03a" Visibility="Hidden">
+            <TextBlock Text="Commercial Property" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="Details" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,45,0,0"/>
+            <TextBlock Text="Business Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtBusName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,105,0,0" Width="300" FontSize="14" TabIndex="10020"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,135,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtBusAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,150,0,0" Width="300" FontSize="14" TabIndex="10021"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,185,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtBusAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,200,0,0" Width="300" FontSize="14" TabIndex="10022"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboBusCity" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,245,0,0" Width="140" FontSize="14" TabIndex="10023"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboBusState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,245,0,0" Width="35" FontSize="14" IsEnabled="False" IsTabStop="False"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtBusZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,245,0,0" Width="70" FontSize="14" TabIndex="10025"/>
+            <TextBlock Text="County" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboBusCounty" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,245,0,0" Width="135" FontSize="14" TabIndex="10026"/>
+            <TextBlock Text="Parcel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtBusParcel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="140" FontSize="14" TabIndex="10027"/>
+            <TextBlock Text="Latitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtBusLat" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="140" FontSize="14" TabIndex="10028"/>
+            <TextBlock Text="Longitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtBusLon" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,290,0,0" Width="140" FontSize="14" TabIndex="10029"/>
+        </Grid>
+        <Grid Name="grid03b" Visibility="Hidden">
+            <TextBlock Text="Facility Details" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="Facility Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" Width="300" FontSize="14" TabIndex="10040"/>
+            <TextBlock Text="Facility ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacID" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,90,0,0" Width="135" FontSize="14" TabIndex="10041"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,125,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,140,0,0" Width="300" FontSize="14" TabIndex="10042"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,175,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,190,0,0" Width="300" FontSize="14" TabIndex="10043"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboFacCity" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,240,0,0" Width="140" FontSize="14" TabIndex="10044"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="txtFacState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,240,0,0" Width="35" FontSize="14" IsEnabled="False" IsTabStop="False"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,240,0,0" Width="70" FontSize="14" TabIndex="10046"/>
+            <TextBlock Text="County" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboFacCounty" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,240,0,0" Width="135" FontSize="14" TabIndex="10047"/>
+            <TextBlock Text="Parcel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacParcel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="140" FontSize="14" TabIndex="10048"/>
+            <TextBlock Text="Latitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacLat" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="140" FontSize="14" TabIndex="10049"/>
+            <TextBlock Text="Longitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacLon" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,290,0,0" Width="140" FontSize="14" TabIndex="10050"/>
+        </Grid>
+        <Grid Name="grid03c" Visibility="Hidden">
+            <TextBlock Text="Property Details" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="Building Description" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropDesc" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" Width="300" FontSize="14" TabIndex="10060"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,125,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,140,0,0" Width="300" FontSize="14" TabIndex="10061"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,175,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,190,0,0" Width="300" FontSize="14" TabIndex="10062"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboPropCity" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,240,0,0" Width="140" FontSize="14" TabIndex="10063"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="txtPropState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,240,0,0" Width="35" FontSize="14" IsEnabled="False" IsTabStop="False"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,240,0,0" Width="70" FontSize="14" TabIndex="10065"/>
+            <TextBlock Text="County" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboPropCounty" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,240,0,0" Width="135" FontSize="14" TabIndex="10066"/>
+            <TextBlock Text="Parcel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropParcel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="140" FontSize="14" TabIndex="10067"/>
+            <TextBlock Text="Latitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropLat" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="140" FontSize="14" TabIndex="10068"/>
+            <TextBlock Text="Longitude" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropLon" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,290,0,0" Width="140" FontSize="14" TabIndex="10069"/>
+        </Grid>
+        <Grid Name="grid04a" Visibility="Hidden">
+            <TextBlock Text="Commercial Property" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="Contact" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,45,0,0"/>
+            <TextBlock Text="First Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConFName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,105,0,0" Width="125" FontSize="14" TabIndex="10080"/>
+            <TextBlock Text="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,90,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConLName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,105,0,0" Width="145" FontSize="14" TabIndex="10081"/>
+            <TextBlock Text="Same as Property" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <CheckBox Name="chkComOccSame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,95,0,0" TabIndex="10082"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,135,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,150,0,0" Width="300" FontSize="14" TabIndex="10083"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,185,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,200,0,0" Width="300" FontSize="14" TabIndex="10084"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConCity" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,245,0,0" Width="135" FontSize="14" TabIndex="10085"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboComConState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,245,0,0" Width="35" FontSize="14" IsEnabled="True" TabIndex="10086"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,245,0,0" Width="75" FontSize="14" TabIndex="10087"/>
+            <TextBlock Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConPhone" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="135" FontSize="14" TabIndex="10088"/>
+            <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComConEmail" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="245" FontSize="14" TabIndex="10089"/>
+        </Grid>
+        <Grid Name="grid04b" Visibility="Hidden">
+            <TextBlock Text="Facility Contact" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="First Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConFName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" Width="145" FontSize="14" TabIndex="10100"/>
+            <TextBlock Text="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConLName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,90,0,0" Width="145" FontSize="14" TabIndex="10101"/>
+            <TextBlock Text="Contact List" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboFacConList" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,90,0,0" Width="155" FontSize="14" TabIndex="10102"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,125,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,140,0,0" Width="300" FontSize="14" TabIndex="10103"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,175,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,190,0,0" Width="300" FontSize="14" TabIndex="10104"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConCity" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,240,0,0" Width="135" FontSize="14" TabIndex="10105"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="txtFacConState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,240,0,0" Width="35" FontSize="14" IsEnabled="True" TabIndex="10107"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,240,0,0" Width="75" FontSize="14" TabIndex="10108"/>
+            <TextBlock Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConPhone" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="135" FontSize="14" TabIndex="10109"/>
+            <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtFacConEmail" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="245" FontSize="14" TabIndex="10110"/>
+        </Grid>
+        <Grid Name="grid04c" Visibility="Hidden">
+            <TextBlock Text="Property Occupant" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="First Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConFName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" Width="145" FontSize="14" TabIndex="10120"/>
+            <TextBlock Text="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConLName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,90,0,0" Width="145" FontSize="14" TabIndex="10121"/>
+            <TextBlock Text="Same as Property" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <CheckBox Name="chkPropOccSame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,95,0,0" TabIndex="10122"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,125,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,140,0,0" Width="300" FontSize="14" TabIndex="10123"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,175,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,190,0,0" Width="300" FontSize="14" TabIndex="10124"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConCity" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,240,0,0" Width="135" FontSize="14" TabIndex="10125"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="txtPropConState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,240,0,0" Width="35" FontSize="14" IsEnabled="False" IsTabStop="False"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,240,0,0" Width="75" FontSize="14" TabIndex="10127"/>
+            <TextBlock Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConPhone" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="135" FontSize="14" TabIndex="10128"/>
+            <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropConEmail" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="245" FontSize="14" TabIndex="10129"/>
+        </Grid>
+        <Grid Name="grid05a" Visibility="Hidden">
+            <TextBlock Text="Commercial Property" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="Owner" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,45,0,0"/>
+            <TextBlock Text="First Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnFName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,105,0,0" Width="125" FontSize="14" TabIndex="10140"/>
+            <TextBlock Text="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,90,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnLName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,105,0,0" Width="145" FontSize="14" TabIndex="10141"/>
+            <TextBlock Text="Same as Contact" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,90,0,0" FontWeight="Bold" FontSize="12"/>
+            <CheckBox Name="chkComOwnSame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,110,0,0" TabIndex="10142"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,135,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,150,0,0" Width="300" FontSize="14" TabIndex="10143"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,185,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,200,0,0" Width="300" FontSize="14" TabIndex="10144"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnCity" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,245,0,0" Width="135" FontSize="14" TabIndex="10145"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="cboComOwnState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,245,0,0" Width="35" FontSize="14" TabIndex="10146"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,230,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,245,0,0" Width="75" FontSize="14" TabIndex="10147"/>
+            <TextBlock Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnPhone" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="135" FontSize="14" TabIndex="10148"/>
+            <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtComOwnEmail" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="245" FontSize="14" TabIndex="10149"/>
+        </Grid>
+        <Grid Name="grid05b" Visibility="Hidden">
+            <TextBlock Text="Facility Owner" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+        </Grid>
+        <Grid Name="grid05c" Visibility="Hidden">
+            <TextBlock Text="Property Owner" FontWeight="Bold" FontSize="36" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <TextBlock Text="First Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnFName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,90,0,0" Width="145" FontSize="14" TabIndex="10160"/>
+            <TextBlock Text="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnLName" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,90,0,0" Width="145" FontSize="14" TabIndex="10161"/>
+            <TextBlock Text="Same as Occupant" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,75,0,0" FontWeight="Bold" FontSize="12"/>
+            <CheckBox Name="chkPropOwnSame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,95,0,0" TabIndex="10162"/>
+            <TextBlock Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,125,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnAddLine1" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,140,0,0" Width="300" FontSize="14" TabIndex="10163"/>
+            <TextBlock Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,175,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnAddLine2" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,190,0,0" Width="300" FontSize="14" TabIndex="10164"/>
+            <TextBlock Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnCity" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,240,0,0" Width="135" FontSize="14" TabIndex="10165"/>
+            <TextBlock Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Name="txtPropOwnState" Style="{StaticResource flatcombo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,240,0,0" Width="35" FontSize="14" TabIndex="10166"/>
+            <TextBlock Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,225,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnZip" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,240,0,0" Width="75" FontSize="14" TabIndex="10167"/>
+            <TextBlock Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnPhone" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,290,0,0" Width="135" FontSize="14" TabIndex="10168"/>
+            <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,275,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Name="txtPropOwnEmail" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,290,0,0" Width="245" FontSize="14" TabIndex="10169"/>
+        </Grid>
+        <Button Name="btnNext" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Height="35" Width="90" Content="Next⇛" FontWeight="Bold" FontSize="24" IsEnabled="True" Click="btnNext_Click" TabIndex="20001"/>
+        <Button Name="btnBack" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Height="35" Width="90" Content="⇚Back" FontWeight="Bold" FontSize="24" Visibility="Hidden" Click="btnBack_Click" TabIndex="20002"/>
+    </Grid>
+</Window>

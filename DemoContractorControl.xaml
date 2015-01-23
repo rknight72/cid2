@@ -1,0 +1,81 @@
+﻿<src:ContactControlBase
+    x:Class="CID2.DemoContractorControl"
+    xmlns:src="clr-namespace:CID2"
+    xmlns:local="clr-namespace:CID2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d" 
+    d:DesignHeight="300" d:DesignWidth="600">
+    <Grid Background="#E5E5E5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*" MinHeight="50px" MaxHeight="60px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="First Name/Business Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0"
+                                       FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="0" Grid.Row="0" Name="txtDemoName" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,20,5,0"
+                                     FontSize="14" MaxLength="256" TabIndex="10300" />
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="txtDemoLName" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0"
+                                     FontSize="14" MaxLength="128" TabIndex="10301"/>
+            <Grid Grid.Column="2" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Grid.Row="0" Name="btnDemoList" Content="List" FontWeight="Bold" Style="{StaticResource flatbutton}"
+                                            Background="LightGray" Foreground="DarkRed" HorizontalAlignment="Stretch" VerticalAlignment="Top" IsEnabledChanged="Button_IsEnabledChanged"
+                                            Margin="5,20,1,0" Click="btnDemoList_Click" FontSize="14" IsEnabled="False" TabIndex="10028"/>
+                <Button Grid.Column="1" Grid.Row="0" Name="btnNewDemo" Content="New" FontWeight="Bold" Style="{StaticResource flatbutton}"
+                                        Background="LightGray" Foreground="DarkGray" HorizontalAlignment="Stretch" VerticalAlignment="Top" IsEnabledChanged="btnNewContact_IsEnabledChanged"
+                                        Margin="1,20,10,0" Click="btnNewDemo_Click" FontSize="14" IsEnabled="False" TabIndex="10029"/>
+            </Grid>
+        </Grid>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Address Line 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold" FontSize="12"/>
+        <TextBox Grid.Column="0" Grid.Row="1" Name="txtDemoAddLine1" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                     Margin="10,20,10,0" FontSize="14" MaxLength="512" TabIndex="10303" />
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Address Line 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold" FontSize="12"/>
+        <TextBox Grid.Column="0" Grid.Row="2" Name="txtDemoAddLine2" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                 Margin="10,20,10,0" FontSize="14" MaxLength="512" TabIndex="10305" />
+        <Grid Grid.Column="0" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="0" Grid.Row="0" Name="txtDemoCity" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                     Margin="10,20,5,0" FontSize="14" MaxLength="128" TabIndex="10306" />
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <ComboBox Grid.Column="1" Grid.Row="0" Name="cboDemoState" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" IsSynchronizedWithCurrentItem="False" FontSize="14" TabIndex="10307"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="Zip" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="2" Grid.Row="0" Name="txtDemoZip" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                     Margin="5,20,10,0" FontSize="14" MaxLength="64" TabIndex="10308"/>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="0" Grid.Row="0" Name="txtDemoEmail" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                     Margin="10,20,4,0" FontSize="14" TabIndex="10309"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" FontWeight="Bold" FontSize="12"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="txtDemoPhone" Text="" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                     Margin="5,20,10,0" FontSize="14" TabIndex="10310"/>
+        </Grid>
+    </Grid>
+</src:ContactControlBase>

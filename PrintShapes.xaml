@@ -1,0 +1,36 @@
+﻿<Window x:Class="CID2.PrintShapes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PrintShapes" Height="500" Width="450" MinHeight="500" MinWidth="450" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="shapes" Width="85" AllowDrop="True" Drop="shapes_Drop" Background="LightGray"/>
+        <DockPanel Name="dock" AllowDrop="True" Grid.Column="1">
+            <Grid Name="PrintGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Canvas Background="WhiteSmoke" AllowDrop="True" Grid.Row="0" Grid.Column="0" Name="row1" Drop="canvas_Drop" SizeChanged="canvas_SizeChanged"/>
+                <Canvas Background="White" AllowDrop="True" Grid.Row="1" Grid.Column="0" Name="row2" Drop="canvas_Drop" SizeChanged="canvas_SizeChanged"/>
+                <Canvas Background="WhiteSmoke" AllowDrop="True" Grid.Row="2" Grid.Column="0" Name="row3" Drop="canvas_Drop" SizeChanged="canvas_SizeChanged"/>
+                <Canvas Background="White" AllowDrop="True" Grid.Row="3" Grid.Column="0" Name="row4" Drop="canvas_Drop" SizeChanged="canvas_SizeChanged"/>
+                <Canvas Background="WhiteSmoke" AllowDrop="True" Grid.Row="4" Grid.Column="0" Name="row5" Drop="canvas_Drop" SizeChanged="canvas_SizeChanged"/>
+            </Grid>
+        </DockPanel>
+        <Button Grid.Row="0" Grid.Column="1" Name="btnAddRow" Content="+" Margin="0,10,45,0" Width="20" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top"
+                FontSize="14" FontWeight="Bold" Click="btnAddRow_Click" TabIndex="10000"/>
+        <Button Grid.Row="0" Grid.Column="1" Name="btnRemoveRow" Content="-" Margin="0,10,10,0" Width="20" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top"
+                FontSize="14" FontWeight="Bold" Click="btnRemoveRow_Click" TabIndex="10001"/>
+        <Button Grid.Row="0" Grid.Column="1" Name="btnEmail" Content="✉" Margin="0,0,45,10" Width="20" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                FontSize="14" Click="btnEmail_Click" TabIndex="10002"/>
+        <Button Grid.Row="0" Grid.Column="1" Name="btnPrint" Content="⎙" Margin="0,0,10,10" Width="20" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                FontSize="14" Click="btnPrint_Click" TabIndex="10003"/>
+    </Grid>
+</Window>

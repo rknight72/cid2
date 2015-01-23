@@ -1,0 +1,32 @@
+﻿<Window x:Class="CID2.RelatedSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RelatedSearch" Height="600" Width="555" MinWidth="200" MinHeight="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Column="0" Grid.Row="0" Name="txtTerms" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="440" FontSize="14" Height="30px" TabIndex="100001"/>
+        <Button Grid.Column="0" Grid.Row="0" Name="btnSearch" Foreground="DarkRed" Background="LightGray" Style="{StaticResource flatbutton}"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Content="Search" Width="65" Height="30" Margin="0,10,10,0" FontSize="18" Click="btnSearch_Click"
+                FontWeight="Bold" TabIndex="100010"/>
+        <DataGrid Grid.Column="0" Grid.Row="1" Name="listComplaints" ItemsSource="{Binding}" IsReadOnly="True" Background="White" AlternatingRowBackground="WhiteSmoke"
+                          AlternationCount="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Width="Auto" AutoGenerateColumns="False"
+                          GridLinesVisibility="Vertical" VerticalGridLinesBrush="LightGray" TabIndex="10020">
+            <DataGrid.RowStyle>
+                <Style>
+                    <EventSetter Event="DataGridRow.MouseDoubleClick" Handler="listComplaints_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Date Received" Binding="{Binding Path=DateReceived, StringFormat='MM/dd/yyyy'}"/>
+                <DataGridTextColumn Header="Complaint Type" Binding="{Binding Path=Type.Label}"/>
+                <DataGridTextColumn x:Name="AddressColumn" Header="Address" Binding="{Binding Path=SiteInfo.AddressLine1}" Width="210"/>
+                <DataGridTextColumn Header="Score" Binding="{Binding Path=Rank}"/>
+                <DataGridTextColumn x:Name="MarkedColumn" Header="Marked" Binding="{Binding Path=Related}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

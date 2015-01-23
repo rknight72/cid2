@@ -1,0 +1,22 @@
+﻿<Window x:Class="CID2.AuditorSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AuditorSearch" Height="350" Width="750" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="WhiteSmoke">
+        <DataGrid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Name="listAddresses" ItemsSource="{Binding}" IsReadOnly="True" AlternatingRowBackground="WhiteSmoke"
+                      AlternationCount="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Width="Auto" AutoGenerateColumns="False"
+                      GridLinesVisibility="Vertical" VerticalGridLinesBrush="LightGray">
+            <DataGrid.RowStyle>
+                <Style>
+                    <EventSetter Event="DataGridRow.MouseDoubleClick" Handler="listAddresses_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Parcel" Binding="{Binding Path=strParcel}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Path=strAdd}"/>
+                <DataGridTextColumn Header="Owner" Binding="{Binding Path=strOwner}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WebBrowser Name="ParcelBrowser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" Visibility="Hidden" LoadCompleted="ParcelBrowse_LoadCompleted"/>
+    </Grid>
+</Window>

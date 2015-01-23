@@ -1,0 +1,94 @@
+﻿<Window x:Class="CID2.OpenComplaints"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        MinHeight="570" MinWidth="1200" WindowStartupLocation="Manual" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid Name="theGrid" Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="150px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Filters" Margin="0,0,0,1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="32"/>
+        <Button Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Name="btnRefresh" Content="♻" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Margin="110,0,0,0" Height="20" Width="20" ToolTip="Refresh List" FontSize="11" Click="btnRefresh_Click" TabIndex="10010"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Font Size" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0"/>
+        <ComboBox Name="cboFont" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,5,0" Width="50"
+                  SelectionChanged="cboFont_SelectionChanged" TabIndex="10020"/>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" MaxWidth="250px"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*" MaxWidth="350px"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*" MaxWidth="350px"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Date Received" Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Visibility="Hidden"/>
+            <ComboBox Name="cboDateType" Grid.Column="0" Grid.Row="0" SelectedValuePath="Key" DisplayMemberPath="Value" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,20,5,0" FontSize="14" TabIndex="10030"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Complaint Category" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox Grid.Column="1" Grid.Row="0" Name="cboCompCategoryList" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False" TabIndex="10031"/>
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="Complaint Location" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox Grid.Column="2" Grid.Row="0" Name="cboCompLocationList" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False" TabIndex="10032"/>
+            <Button Name="btnSettings" Grid.Column="4" Grid.Row="0" Content="⚙" ToolTip="Save grid settings" HorizontalAlignment="Right"
+                    VerticalAlignment="Top" Margin="0,3,5,5" Width="20" Height="20" Visibility="Hidden"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Start" Margin="10,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <DatePicker Name="dtStart" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Margin="10,18,5,0" VerticalAlignment="Top" FontSize="14" TabIndex="10040"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="End" Margin="10,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <DatePicker Name="dtEnd" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" Margin="10,18,5,0" VerticalAlignment="Top" FontSize="14" TabIndex="10041"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="Complaint Type" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" Name="cboCompTypeList" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False" TabIndex="10042"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="CETA Type" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox Grid.Column="1" Grid.Row="2" Name="cboCETAType" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False" TabIndex="10043"/>
+            <TextBlock Grid.Column="2" Grid.Row="1" Text="City" Margin="5,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox Grid.Column="2" Grid.Row="1" Name="cboCityList" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False" TabIndex="10044"/>
+            <TextBlock Grid.Column="2" Grid.Row="2" Text="Township" Margin="5,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ComboBox Grid.Column="2" Grid.Row="2" Name="cboTwpList" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False" TabIndex="10045"/>
+            <TextBlock Grid.Column="3" Grid.Row="1" Text="Complaint" Margin="5,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <TextBox Grid.Column="3" Grid.Row="1" Name="txtComplaint" Margin="5,20,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" TabIndex="10046"/>
+            <TextBlock Grid.Column="3" Grid.Row="2" Text="Notes" Margin="5,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <TextBox Grid.Column="3" Grid.Row="2" Name="txtNotes" Margin="5,20,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" TabIndex="10047"/>
+            <TextBlock Grid.Column="4" Grid.Row="1" Text="Parcel/Place ID/Facility ID" Margin="5,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <TextBox Grid.Column="4" Grid.Row="1" Name="txtParcel" Margin="5,20,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="14" TabIndex="10048"/>
+            <TextBlock Grid.Column="4" Grid.Row="2" Name="txtAddressLabel" Text="Street Address" Margin="5,0,10,0" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" FontSize="14" Visibility="Visible"/>
+            <TextBox Grid.Column="4" Grid.Row="2" Name="txtAddress" Margin="5,20,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                     FontSize="14" Visibility="Visible" TabIndex="10049"/>
+            <TextBlock Grid.Column="5" Grid.Row="1" Name="txtContactLabel" Text="Contact Name" Margin="5,0,0,0" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" Visibility="Visible" FontSize="14"/>
+            <TextBox Grid.Column="5" Grid.Row="1" Name="txtContact" Margin="5,20,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                     FontSize="14" Visibility="Visible" TabIndex="10050"/>
+            <TextBlock Grid.Column="5" Grid.Row="2" Name="txtInspectorLabel" Text="Inspector" Margin="5,0,0,0" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" FontSize="14" Visibility="Visible"/>
+            <ComboBox Grid.Column="5" Grid.Row="2" Name="cboInspector" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,5,0" FontSize="14" IsSynchronizedWithCurrentItem="False" Visibility="Visible" TabIndex="10051"/>
+            <TextBlock Grid.Column="6" Grid.Row="1" Name="txtFacNameLabel" Text="Description/Facility" Margin="5,0,5,0" HorizontalAlignment="Left"
+                       VerticalAlignment="Top" Visibility="Visible" FontSize="14"/>
+            <TextBox Grid.Column="6" Grid.Row="1" Name="txtFacName" Margin="5,20,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                     FontSize="14" Visibility="Visible" TabIndex="10052"/>
+            <TextBlock Grid.Column="6" Grid.Row="2" Name="txtStatus" Text="Case Status" Margin="5,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Visibility="Visible"/>
+            <ComboBox Grid.Column="6" Grid.Row="2" Name="cboStatusList" SelectedValuePath="ID" Style="{StaticResource flatcombo}"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,20,10,0" FontSize="14" IsSynchronizedWithCurrentItem="False" Visibility="Visible" TabIndex="10053"/>
+        </Grid>
+        <DataGrid Grid.Column="0" Grid.Row="2" Name="listComplaints" ItemsSource="{Binding}" IsReadOnly="True" AlternatingRowBackground="WhiteSmoke" AlternationCount="2"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10" Width="Auto" AutoGenerateColumns="False" GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="LightGray" UseLayoutRounding="True" TabIndex="10100">
+            <DataGrid.RowStyle>
+                <Style>
+                    <EventSetter Event="DataGridRow.MouseDoubleClick" Handler="listComplaints_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+    </Grid>   
+</Window>
